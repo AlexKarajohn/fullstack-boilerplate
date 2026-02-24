@@ -1,0 +1,11 @@
+{
+  "name": "@repo/supabase",
+  "private": true,
+  "scripts": {
+    "start": "supabase start",
+    "db:reset": "supabase db reset"
+  },
+  "devDependencies": {
+    "supabase": "^2.0.0"
+  }
+}

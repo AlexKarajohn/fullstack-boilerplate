@@ -1,0 +1,28 @@
+info:
+  name: Upload File
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{base_url}}/uploads"
+  headers:
+    - name: Authorization
+      value: Bearer {{token}}
+  body:
+    type: multipart-form
+    params:
+      - name: file
+        value: ""
+        type: file
+
+docs: |-
+  Upload a single file (multipart/form-data, field name `file`).
+  Requires auth: set `token` in your environment to a valid Supabase JWT (e.g. from Supabase Auth session).
+  In Bruno: open the Body tab, ensure "Multipart Form" is selected, then use "Add File" for the `file` field.
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

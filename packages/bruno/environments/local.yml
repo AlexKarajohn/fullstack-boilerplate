@@ -1,0 +1,7 @@
+name: local
+variables:
+  - name: base_url
+    value: http://localhost:3001
+  # Set to a valid Supabase JWT for auth-required routes (e.g. POST /uploads)
+  - name: token
+    value: ""

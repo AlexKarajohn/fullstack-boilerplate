@@ -1,0 +1,24 @@
+{
+  "name": "turbo-boilerplate",
+  "private": true,
+  "packageManager": "npm@10.8.2",
+  "workspaces": ["apps/*", "packages/*"],
+  "scripts": {
+    "build": "turbo run build",
+    "supabase:start": "npm run start -w @repo/supabase",
+    "supabase:sync-env": "node scripts/sync-env-local.js",
+    "ensure-storage-bucket": "node scripts/ensure-storage-bucket.js",
+    "dev": "npm run supabase:start && npm run supabase:sync-env && npm run ensure-storage-bucket && dotenv -e .env.local -- turbo run dev",
+    "prod": "dotenv -e .env.production -- turbo run dev",
+    "db:generate": "npm run db:generate -w @repo/database",
+    "db:migrate:local": "dotenv -e .env.local -- npm run db:migrate -w @repo/database",
+    "db:migrate:prod": "dotenv -e .env.production -- npm run db:migrate -w @repo/database",
+    "db:reset:local": "npm run db:reset -w @repo/supabase",
+    "db:studio:local": "dotenv -e .env.local -- npm run db:studio -w @repo/database",
+    "db:studio:prod": "dotenv -e .env.production -- npm run db:studio -w @repo/database"
+  },
+  "devDependencies": {
+    "dotenv-cli": "^7.4.2",
+    "turbo": "latest"
+  }
+}

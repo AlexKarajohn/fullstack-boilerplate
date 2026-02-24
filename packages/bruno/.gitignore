@@ -1,0 +1,4 @@
+# Bruno - avoid committing sensitive env data and local metadata
+*.local.yml
+.env
+.env.*
